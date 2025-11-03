@@ -15,7 +15,9 @@ from django.db import models
 class Section(models.Model):
     name = models.CharField(max_length=100)
 
-    # This __str__ method is not required, but when instances of the 
+    # When instances of a class are printed to the terminal, they generally print something that looks like this --> <__main__.Post object at 0x000001A9C43F8A00>
+    # This __str__ method changes that default behavior and causes the terminal to print what we direct it to.
+    # In this case, the name of the instance will be returned (as a string) so that instances of objects are easier to work with later.
     def __str__(self):
         return self.name
     

@@ -50,8 +50,9 @@ Commit to github:
     C) git push
 -----------------------------------------------------------------------------------------------------------
 
-Part V: Set Up the Models - The structure of this project is that that sections will have posts which will in turn have replies
-The hierarchy of classes within the app is hard to change later, so for your app, make a point to plan well here.
+Part V: Set Up the Models
+ - The structure of this project is that that sections will have posts which will in turn have replies
+ - The hierarchy of classes within the app is hard to change later, so for your app, make a point to plan well here.
 
 1) Open the forum/models.py file and add classes
 2) The specific code is located there, feel free to copy that or adopt the general outline in your own app
@@ -65,5 +66,17 @@ The hierarchy of classes within the app is hard to change later, so for your app
 Commit to github:
     A) git add .
     B) git commit -m "Add Section, Post, and Reply models with __str__ methods"
+    C) git push
+-----------------------------------------------------------------------------------------------------------
+
+Part VI: Register Models in Admin
+This entire process helps build out the admin page so that users can edit from a GUI.
+1) Open the forum/admin.py file
+2) Update your file to look like the one in this example
+
+-----------------------------------------------------------------------------------------------------------
+Commit to github:
+    A) git add .
+    B) git commit -m "Updated Admin Module"
     C) git push
 -----------------------------------------------------------------------------------------------------------
