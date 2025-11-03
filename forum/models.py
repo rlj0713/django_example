@@ -30,6 +30,10 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} ({self.section.name})"
     
+    # newest posts first
+    class Meta:
+        ordering = ['-created_at']
+    
 class Reply(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='replies')
     content = models.TextField()
@@ -37,3 +41,7 @@ class Reply(models.Model):
 
     def __str__(self):
         return f"Reply to {self.post.title}"
+
+    # newest posts first
+    class Meta:
+        ordering = ['-created_at']

@@ -1,0 +1,9 @@
+<h1>Replying to: {{ post.title }}</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit Reply</button>
+</form>
+
+<a href="{% url 'section_list' %}">Back to Forum Home</a>

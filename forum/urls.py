@@ -8,4 +8,5 @@ from . import views
 urlpatterns = [
     path('', views.section_list, name='section_list'),
     path('create/', views.create_post, name='create_post'),
+    path('reply/<int:post_id>/', views.create_reply, name='create_reply'),
 ]

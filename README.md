@@ -131,3 +131,18 @@ Commit to github:
     B) git commit -m "Fix imports and make create post form functional"
     C) git push
 -----------------------------------------------------------------------------------------------------------
+
+Step IX: Add Replies to Posts
+1) Open the templates/forum/section_list.html file and update it to include replies (see lines 27-55 for reference).
+2) Use this example as a reference
+3) Open the forum/urls.py file and add --> path('reply/<int:post_id>/', views.create_reply, name='create_reply'), to the urlpatterns list.
+4) Open the views.py file and add the create_reply function
+5) Open the forms.py file and add the ReplyForm class
+6) Create a file called templates/forum/create_reply.html
+
+-----------------------------------------------------------------------------------------------------------
+Commit to github:
+    A) git add .
+    B) git commit -m "Added Replies to Posts"
+    C) git push
+-----------------------------------------------------------------------------------------------------------

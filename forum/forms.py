@@ -3,7 +3,7 @@
 # fields = [...] → specify which fields should appear in the form
 
 from django import forms
-from .models import Post
+from .models import Post, Reply
 
 # This form will let students create new Posts
 class PostForm(forms.ModelForm):
@@ -12,3 +12,8 @@ class PostForm(forms.ModelForm):
         model = Post
         # Fields the student can fill out
         fields = ['section', 'title', 'content']
+
+class ReplyForm(forms.ModelForm):
+    class Meta:
+        model = Reply
+        fields = ['content']

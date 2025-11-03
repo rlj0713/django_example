@@ -11,4 +11,10 @@ from .models import Section, Post, Reply
 # It isn't necessary, but it can be very helpful
 admin.site.register(Section)
 admin.site.register(Post)
-admin.site.register(Reply)
+
+class ReplyAdmin(admin.ModelAdmin):
+    list_display = ('post', 'content', 'created_at')  # show Post title, content, and timestamp
+    list_filter = ('post',)  # optional: filter by Post
+    search_fields = ('content', 'post__title')  # search by content or post title
+
+admin.site.register(Reply, ReplyAdmin)

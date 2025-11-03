@@ -1,11 +1,13 @@
 # Import the render shortcut to render templates
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Import the Section model from this app
 from .models import Section
+from .models import Post
 
-# Import the PostForm model from this app
+# Import the PostForm and ReplyForm model from this app
 from .forms import PostForm
+from .forms import ReplyForm
 
 # Define a view function that will handle requests to the forum home page
 # Note that this function was added in part 7 of the readMe
@@ -36,3 +38,19 @@ def create_post(request):
     # If the form is invalid or it’s the first visit (GET request), show an empty form
     # redirect('section_list') → sends the user back to the home page after submission
     return render(request, 'forum/create_post.html', {'form': form})
+
+# Note that this function was added in part 9 of the readMe
+def create_reply(request, post_id):
+    post = get_object_or_404(Post, id=post_id)  # find the post being replied to
+
+    if request.method == 'POST':
+        form = ReplyForm(request.POST)
+        if form.is_valid():
+            reply = form.save(commit=False)  # don’t save to DB yet
+            reply.post = post               # assign the Post
+            reply.save()
+            return redirect('section_list')  # back to home page
+    else:
+        form = ReplyForm()
+
+    return render(request, 'forum/create_reply.html', {'form': form, 'post': post})

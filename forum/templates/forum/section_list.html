@@ -1,3 +1,5 @@
+
+<!-- Lines 2-24 were replaced at step #9 with the code below line 25, this is left here for reference
 <h1>Forum Sections</h1>
 
 <ul>
@@ -19,4 +21,35 @@
   {% empty %}
     <li>No sections yet.</li>
   {% endfor %}
-</ul>
+</ul> -->
+
+
+<h1>Forum Home</h1>
+
+{% for section in sections %}
+  <h2>{{ section.name }}</h2>
+
+  {% for post in section.posts.all %}
+    <div style="margin-left: 20px; border: 1px solid #ccc; padding: 5px; margin-bottom: 5px;">
+      <strong>{{ post.title }}</strong> <em>({{ post.created_at }})</em>
+      <p>{{ post.content }}</p>
+
+      {% for reply in post.replies.all %}
+        <div style="margin-left: 20px; border-left: 2px solid #888; padding-left: 10px; margin-bottom: 3px;">
+          <p>{{ reply.content }} <em>({{ reply.created_at }})</em></p>
+        </div>
+      {% empty %}
+        <p style="margin-left: 20px;">No replies yet.</p>
+      {% endfor %}
+
+      <a href="{% url 'create_reply' post.id %}">Reply</a>
+    </div>
+  {% empty %}
+    <p>No posts yet in this section.</p>
+  {% endfor %}
+
+{% empty %}
+  <p>No sections found.</p>
+{% endfor %}
+
+<a href="{% url 'create_post' %}">Create a New Post</a>
