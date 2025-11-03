@@ -101,3 +101,33 @@ Commit to github:
     B) git commit -m "Include forum app URLs in project URLs"
     C) git push
 -----------------------------------------------------------------------------------------------------------
+
+Step VIII: Add a form for creating new posts
+
+1) Create a forms.py file in the parent forum/ folder
+2) Use the file in this project as an example
+3) In forum/views.py, create a view using this project as an example.
+4) Create this file:
+    In forum/templates/forum/create_post.html
+5) Use this file as an example
+6) Open the forum/urls.py file and add --> path('create/', views.create_post, name='create_post'), to the urlpatterns list.
+
+    To test, we need to manually add a few things.  To do so, we need to access the /admin page:
+    A) Terminal --> 'python manage.py createsuperuser'
+    B) Fill this out and don't forget the creds, I chose admin as a user and my actual e-mail.
+    C) Terminal --> 'python manage.py runserver 0.0.0.0:8000'
+    D) Open in browser and add /admin to the url
+    E) Log in
+    F) Choose sections from the dashboard
+    G) Create a few sections (I chose to add some courses that I teach)
+    H) Navigate to ...8000.app.github.dev/create/
+    I) Check the drop-down menu to make sure the sections are populated.
+
+7) Submit some sample data in the form. The home page should show the new post.
+
+-----------------------------------------------------------------------------------------------------------
+Commit to github:
+    A) git add .
+    B) git commit -m "Fix imports and make create post form functional"
+    C) git push
+-----------------------------------------------------------------------------------------------------------

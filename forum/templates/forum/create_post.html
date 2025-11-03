@@ -1,0 +1,11 @@
+<h1>Create a New Post</h1>
+
+<form method="post">
+    <!-- protects against cross-site request forgery -->
+    {% csrf_token %}
+    <!-- renders all fields as paragraphs -->
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+<a href="{% url 'section_list' %}">Back to Forum Home</a>
