@@ -49,3 +49,21 @@ Commit to github:
     B) git commit -m "Created Forum App inside of messageboard_project"
     C) git push
 -----------------------------------------------------------------------------------------------------------
+
+Part V: Set Up the Models - The structure of this project is that that sections will have posts which will in turn have replies
+The hierarchy of classes within the app is hard to change later, so for your app, make a point to plan well here.
+
+1) Open the forum/models.py file and add classes
+2) The specific code is located there, feel free to copy that or adopt the general outline in your own app
+3) Terminal --> 'python manage.py makemigrations'
+    This stages changes to the database structure
+4) Terminal --> 'python manage.py migrate'
+    This pushes those models to the database
+    You should see the migration with a green OK message next to each change 
+
+-----------------------------------------------------------------------------------------------------------
+Commit to github:
+    A) git add .
+    B) git commit -m "Add Section, Post, and Reply models with __str__ methods"
+    C) git push
+-----------------------------------------------------------------------------------------------------------
