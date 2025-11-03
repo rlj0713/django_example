@@ -1,0 +1,22 @@
+<h1>Forum Sections</h1>
+
+<ul>
+  {% for section in sections %}
+    <li>
+      <h2>{{ section.name }}</h2>
+      <ul>
+        {% for post in section.posts.all %}
+          <li>
+            <strong>{{ post.title }}</strong><br>
+            {{ post.content }}<br>
+            <small>{{ post.created_at }}</small>
+          </li>
+        {% empty %}
+          <li>No posts yet in this section.</li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% empty %}
+    <li>No sections yet.</li>
+  {% endfor %}
+</ul>

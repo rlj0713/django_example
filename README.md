@@ -80,3 +80,24 @@ Commit to github:
     B) git commit -m "Updated Admin Module"
     C) git push
 -----------------------------------------------------------------------------------------------------------
+
+Part VII: Create the first Forum Page
+1) Create a folder in the main forum folder called 'templates'
+2) Create a folder within that folder called 'forum'
+3) Create a file within that folder called section_list.html
+4) Copy the text of this html file for now
+    Take a look at (https://www.w3schools.com/django/django_template_variables.php) for Django syntax
+    It feels like python, but there are a few differences
+5) Open the forum/views.py file
+6) Copy the text of this file for now, but take a look at the documentation on that page.
+7) Create a file called urls.py in the 
+8) Update that file to look like the one in this example, but take a look at the documentation on that page.
+9) Open the messageboard_project/urls.py file and add the line --> path('', include('forum.urls')), to the urlpatterns list.
+    There is plenty of documentation on this file, please read that before moving on.
+
+-----------------------------------------------------------------------------------------------------------
+Commit to github:
+    A) git add .
+    B) git commit -m "Include forum app URLs in project URLs"
+    C) git push
+-----------------------------------------------------------------------------------------------------------
